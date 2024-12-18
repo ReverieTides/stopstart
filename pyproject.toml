@@ -1,5 +1,5 @@
 [project]
-name = "timer"
+name = "stopstart"
 version = "0.1.0"
 description = "A simple timer class for tracking elapsed time across multiple sessions, with detailed statistics and formatted output."
 readme = "README.md"
