@@ -5,8 +5,6 @@ description = "A simple timer class for tracking elapsed time across multiple se
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "commitizen>=4.1.0",
-    "tool>=0.8.0",
 ]
 
 [build-system]
