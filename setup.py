@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="stopstart",
     version="0.4.0",
-    packages=[],
+    packages=find_packages(),
     install_requires=[],
     author="Dan",
     author_email="break.a.wish@gmail.com",
