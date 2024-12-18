@@ -99,6 +99,8 @@ You can also print time snapshots without affecting the ongoing time tracking. T
 ```python
 time.sleep(30)
 timer.print_snapshot(prefix='Snapshot Example:')
+# You can also prefix the default Timer print statement by calling .print(prefix)!
+# Handy for on the fly feedback
 timer.print('Actual recorded time:')
 ```
 #### Output:
