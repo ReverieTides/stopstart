@@ -1,3 +1,10 @@
+## 0.3.0 (2024-12-18)
+
+### Feat
+
+- removed circular import in __init__.py
+- removed auto find packages from requires
+
 ## 0.2.0 (2024-12-18)
 
 ### Feat
