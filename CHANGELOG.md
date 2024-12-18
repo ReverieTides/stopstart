@@ -1,3 +1,9 @@
+## 0.3.2 (2024-12-18)
+
+### Fix
+
+- lowered python version requirement
+
 ## 0.3.1 (2024-12-18)
 
 ### Fix
