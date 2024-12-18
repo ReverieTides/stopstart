@@ -94,7 +94,7 @@ Total duration in seconds: 4.0001797676086426
 4 seconds, 179 microseconds, and 767 nanoseconds
 Stats: {'total_time': 4.0001797676086426, 'num_sessions': 2, 'avg_time': 2.0000898838043213}
 ```
-### Print snapshots
+### Example: Snapshots
 You can also print time snapshots without affecting the ongoing time tracking. This is useful for logging intermediate results or showing progress without interrupting the current session. The snapshot feature is non-intrusive and does not reset or stop the timer.
 ```python
 time.sleep(30)
