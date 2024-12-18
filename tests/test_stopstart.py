@@ -1,11 +1,11 @@
 import time
 import pytest
-from stopstart import Timer
+from stopstart.stopstart import Timer
 
 
 @pytest.fixture
 def timer():
-    """Fixture to create a fresh Timer instance for each test."""
+    """Fixture to create a fresh  instance for each test."""
     return Timer()
 
 
