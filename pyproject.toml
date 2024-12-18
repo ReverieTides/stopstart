@@ -5,8 +5,10 @@ description = "A simple timer class for tracking elapsed time across multiple se
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "build>=1.2.2.post1",
     "pytest>=8.3.4",
     "ruff>=0.8.3",
     "setuptools>=75.6.0",
+    "twine>=6.0.1",
     "wheel>=0.45.1",
 ]

@@ -1,4 +1,4 @@
-# Timer
+# stopstart
 
 A simple and intuitive Python class for tracking elapsed time across multiple sessions. The `Timer` class offers a clean, human-readable interface to start and stop time, while providing detailed session statistics and beautifully formatted elapsed time. Whether you're measuring short intervals or long-running processes, the `Timer` class ensures you have accurate data with minimal effort.
 

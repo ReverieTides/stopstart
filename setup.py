@@ -10,7 +10,7 @@ setup(
     description="A simple and intuitive Python class for tracking elapsed time across multiple sessions",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="tbc",
+    url="https://github.com/ReverieTides/stopstart",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: BSD 2-Clause License",
