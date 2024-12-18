@@ -96,11 +96,13 @@ Stats: {'total_time': 4.0001797676086426, 'num_sessions': 2, 'avg_time': 2.00008
 ```
 ### Example: Snapshots
 You can also print time snapshots without affecting the ongoing time tracking. This is useful for logging intermediate results or showing progress without interrupting the current session. The snapshot feature is non-intrusive and does not reset or stop the timer.
+
+:bulb: You can also prefix the default Timer print statement by calling .print(prefix), handy for on the fly feedback!
+
 ```python
 time.sleep(30)
 timer.print_snapshot(prefix='Snapshot Example:')
-# You can also prefix the default Timer print statement by calling .print(prefix)!
-# Handy for on the fly feedback
+
 timer.print('Actual recorded time:')
 ```
 #### Output:
