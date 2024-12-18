@@ -33,7 +33,7 @@ A simple and intuitive Python class for tracking elapsed time across multiple se
 Install the package via `pip`:
 
 ```bash
-pip install timer
+pip install stopstart -U
 ```
 ## Usage
 ### Example: Typical Usecase
