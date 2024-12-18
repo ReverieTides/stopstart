@@ -1,6 +1,6 @@
 [project]
 name = "stopstart"
-version = "0.5.2"
+version = "0.5.3"
 description = "A simple timer class for tracking elapsed time across multiple sessions, with detailed statistics and formatted output."
 readme = "README.md"
 requires-python = ">=3.8"
