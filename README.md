@@ -45,7 +45,7 @@ from stopstart import Timer
 # Initialize the Timer
 timer = Timer()
 
-# Start the timer (reset to 0)
+# Start the timer (or reset to 0)
 timer.start()
 
 # Wait for 2 seconds
@@ -66,9 +66,9 @@ print(f"Stats: {stats}")
 ```
 #### Output:
 ```
-Total duration in seconds: 2.000082492828369  
-2 seconds, 82 microseconds, and 492 nanoseconds  
-Stats: {'total_time': 2.000082492828369, 'num_sessions': 1, 'avg_time': 2.000082492828369}
+>>> Total duration in seconds: 2.000082492828369  
+>>> 2 seconds, 82 microseconds, and 492 nanoseconds  
+>>> Stats: {'total_time': 2.000082492828369, 'num_sessions': 1, 'avg_time': 2.000082492828369}
 ```
 ### Example: Session Resuming
 The Timer class can resume timing without resetting the session history, allowing you to track multiple periods of time over the course of your work. This makes it easy to start new sessions without losing track of the total time across sessions.
@@ -90,9 +90,9 @@ print(timer)
 ```
 #### Output:
 ```
-Total duration in seconds: 4.0001797676086426
-4 seconds, 179 microseconds, and 767 nanoseconds
-Stats: {'total_time': 4.0001797676086426, 'num_sessions': 2, 'avg_time': 2.0000898838043213}
+>>> Total duration in seconds: 4.0001797676086426
+>>> 4 seconds, 179 microseconds, and 767 nanoseconds
+>>> Stats: {'total_time': 4.0001797676086426, 'num_sessions': 2, 'avg_time': 2.0000898838043213}
 ```
 ### Example: Snapshots
 You can also print time snapshots without affecting the ongoing time tracking. This is useful for logging intermediate results or showing progress without interrupting the current session. The snapshot feature is non-intrusive and does not reset or stop the timer.
@@ -108,8 +108,8 @@ timer.print('Actual recorded time:')
 #### Output:
 
 ```
-Snapshot Example: 34 seconds, 132 microseconds, and 165 nanoseconds
-Actual recorded time: 4 seconds, 179 microseconds, and 767 nanoseconds
+>>> Snapshot Example: 34 seconds, 132 microseconds, and 165 nanoseconds
+>>> Actual recorded time: 4 seconds, 179 microseconds, and 767 nanoseconds
 ```
 
 ### Example: Accessing Timer History
@@ -125,13 +125,15 @@ timer = Timer()
 timer.start()
 time.sleep(2)
 timer.stop()
+# Compatible with fstrings
 print(f"Session 1 Duration: {timer}")
 
 # Start a second session without resetting the timer
 timer.start(reset=False)
 time.sleep(3)
 timer.stop()
-print(f"Session 2 Duration: {timer}")
+# Or use the handy .print function to add a prefix
+timer.print('Session 2 Duration:')
 
 # Accessing the history of all actions
 print(f"Actions History: {timer.actions}")
@@ -139,9 +141,9 @@ print(f"Actions History: {timer.actions}")
 #### Output:
 
 ```
-Session 1 Duration: 2 seconds, 0 microseconds, and 0 nanoseconds  
-Session 2 Duration: 5 seconds, 0 microseconds, and 0 nanoseconds  
-Actions History: [
+>>> Session 1 Duration: 2 seconds, 0 microseconds, and 0 nanoseconds  
+>>> Session 2 Duration: 5 seconds, 0 microseconds, and 0 nanoseconds  
+>>> Actions History: [
     {'start': 1699392400.0, 'stop': 1699392402.0, 'duration': 2.0}, 
     {'start': 1699392402.0, 'stop': 1699392407.0, 'duration': 5.0}
 ]
