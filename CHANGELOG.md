@@ -1,3 +1,11 @@
+## 0.4.1 (2024-12-18)
+
+### Fix
+
+- added auto packages back
+- version
+- version hell
+
 ## 0.4.0 (2024-12-18)
 
 ## 0.3.3 (2024-12-18)
