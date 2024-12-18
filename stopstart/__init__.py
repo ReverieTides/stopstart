@@ -1,1 +1,1 @@
-from stopstart import Timer
+from .stopstart import Timer
