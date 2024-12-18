@@ -36,11 +36,11 @@ Install the package via `pip`:
 pip install timer
 ```
 ## Usage
-### Typical Usecase
+### Example: Typical Usecase
 In this example, the timer is used to measure a single session. Starting and stopping the timer around an activity (like a 2-second wait) will give you the total duration for that period, along with a detailed human-readable output and session statistics.
 ```python
 import time
-from timer import Timer
+from stopstart import Timer
 
 # Initialize the Timer
 timer = Timer()
@@ -70,7 +70,7 @@ Total duration in seconds: 2.000082492828369
 2 seconds, 82 microseconds, and 492 nanoseconds  
 Stats: {'total_time': 2.000082492828369, 'num_sessions': 1, 'avg_time': 2.000082492828369}
 ```
-### Session Resuming
+### Example: Session Resuming
 The Timer class can resume timing without resetting the session history, allowing you to track multiple periods of time over the course of your work. This makes it easy to start new sessions without losing track of the total time across sessions.
 
 In this example, we start a second session without resetting the timer, simulate another 2-second activity, and then stop the timer to get the updated total duration.
@@ -109,10 +109,10 @@ Actual recorded time: 4 seconds, 179 microseconds, and 767 nanoseconds
 ```
 
 ### Example: Accessing Timer History
-The timer automatically preserves the history of previous sessions in the `actions` attribute. This allows you to access a complete log of all sessions, including their start and stop times, without losing any context. You can easily retrieve this history to analyze past sessions or track progress over time.
+The Timer automatically preserves the history of previous sessions in the `actions` attribute. This allows you to access a complete log of all sessions, including their start and stop times, without losing any context. You can easily retrieve this history to analyze past sessions or track progress over time.
 ```python
 import time
-from timer import Timer
+from stopstart import Timer
 
 # Initialize the Timer object
 timer = Timer()
