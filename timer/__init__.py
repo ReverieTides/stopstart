@@ -1,1 +1,1 @@
-from .timer import Timer
+from timer import Timer  # noqa: F401
