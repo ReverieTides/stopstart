@@ -1,4 +1,5 @@
 import time
+from typing import Optional
 
 
 class Timer:
@@ -18,7 +19,7 @@ class Timer:
         self.latest_start_time = latest_time
         self.is_running = True
 
-    def stop(self):
+    def stop(self, comment: Optional[str] = None):
         if not self.is_running:
             return
         self.end_time = time.time()
@@ -27,6 +28,7 @@ class Timer:
                 "start_time": self.latest_start_time,
                 "end_time": self.end_time,
                 "duration": self.end_time - self.latest_start_time,
+                "comment": comment or "",
             }
         )
         self.is_running = False
