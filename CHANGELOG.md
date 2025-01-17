@@ -1,3 +1,10 @@
+## 0.6.0 (2025-01-17)
+
+### Feat
+
+- updated min python version and added additonal print formatting options for Timer.actions
+- added a named parameter to stop
+
 ## 0.5.3 (2024-12-18)
 
 ## 0.5.2 (2024-12-18)
