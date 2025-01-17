@@ -1,3 +1,9 @@
+## 0.7.0 (2025-01-17)
+
+### Fix
+
+- fixed bug in ignore_durations param which iterated through None value if not provided.
+
 ## 0.6.0 (2025-01-17)
 
 ### Feat
