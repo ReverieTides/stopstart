@@ -44,6 +44,12 @@ class Timer:
         self.actions = []
         self.latest_start_time = None
         self.is_running = False
+        ignore_durations = ignore_durations or []
+        ignore_durations = (
+            ignore_durations
+            if isinstance(ignore_durations, list)
+            else [ignore_durations]
+        )
         self.ignore_durations = ignore_durations
 
     def start(self, reset: bool = True):
