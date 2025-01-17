@@ -1,15 +1,50 @@
 import time
-from typing import Optional
+from typing import Optional, Literal
+
+IGNORE_DURATIONS = [
+    Literal["days"],
+    Literal["hours"],
+    Literal["minutes"],
+    Literal["seconds"],
+    Literal["milliseconds"],
+    Literal["microseconds"],
+    Literal["nanoseconds"],
+]
 
 
 class Timer:
-    def __init__(self):
+    def __init__(
+        self,
+        ignore_durations: Optional[
+            (
+                list[
+                    Literal["days"],
+                    Literal["hours"],
+                    Literal["minutes"],
+                    Literal["seconds"],
+                    Literal["milliseconds"],
+                    Literal["microseconds"],
+                    Literal["nanoseconds"],
+                ]
+                | Literal[
+                    "days",
+                    "hours",
+                    "minutes",
+                    "seconds",
+                    "milliseconds",
+                    "microseconds",
+                    "nanoseconds",
+                ]
+            )
+        ] = None,
+    ):
         self.start_time = None
         self.end_time = None
         self.pause_durations = []
         self.actions = []
         self.latest_start_time = None
         self.is_running = False
+        self.ignore_durations = ignore_durations
 
     def start(self, reset: bool = True):
         latest_time = time.time()
@@ -28,10 +63,13 @@ class Timer:
                 "start_time": self.latest_start_time,
                 "end_time": self.end_time,
                 "duration": self.end_time - self.latest_start_time,
-                "comment": comment or "",
+                "comment": comment,
             }
         )
         self.is_running = False
+
+    def resume(self):
+        self.start(reset=False)
 
     @staticmethod
     def calculate_total_duration(actions):
@@ -66,8 +104,7 @@ class Timer:
     def days(self):
         return self.total_duration / 86400
 
-    @staticmethod
-    def format_time(duration_in_seconds):
+    def format_time(self, duration_in_seconds):
         """Convert total seconds into a nicely formatted string with different durations."""
         days = int(duration_in_seconds // 86400)
         hours = int((duration_in_seconds % 86400) // 3600)
@@ -79,29 +116,29 @@ class Timer:
 
         formatted_time = []
 
-        if days > 0:
+        if days and "days" not in self.ignore_durations:
             formatted_time.append(f"{days} day{'s' if days > 1 else ''}")
 
-        if hours > 0:
+        if hours and "hours" not in self.ignore_durations:
             formatted_time.append(f"{hours} hour{'s' if hours > 1 else ''}")
 
-        if minutes > 0:
+        if minutes and "minutes" not in self.ignore_durations:
             formatted_time.append(f"{minutes} minute{'s' if minutes > 1 else ''}")
 
-        if seconds > 0:
+        if seconds and "seconds" not in self.ignore_durations:
             formatted_time.append(f"{seconds} second{'s' if seconds > 1 else ''}")
 
-        if milliseconds > 0:
+        if milliseconds and "milliseconds" not in self.ignore_durations:
             formatted_time.append(
                 f"{milliseconds} millisecond{'s' if milliseconds > 1 else ''}"
             )
 
-        if microseconds > 0:
+        if microseconds and "microseconds" not in self.ignore_durations:
             formatted_time.append(
                 f"{microseconds} microsecond{'s' if microseconds > 1 else ''}"
             )
 
-        if nanoseconds > 0:
+        if nanoseconds and "nanoseconds" not in self.ignore_durations:
             formatted_time.append(
                 f"{nanoseconds} nanosecond{'s' if nanoseconds > 1 else ''}"
             )
@@ -141,3 +178,10 @@ class Timer:
         past_actions.append({"start_time": self.end_time, "end_time": current_time})
         total_seconds = self.calculate_total_duration(past_actions)
         print(f"{prefix} {self.format_time(total_seconds)}")
+
+    def print_actions(self, justification: int = 15):
+        for i, each_action in enumerate(self.actions, start=1):
+            text = each_action["comment"] if each_action["comment"] else f"Stop {i}:"
+            print(
+                f'{text:<{justification}} {self.format_time(each_action["duration"])}'
+            )
